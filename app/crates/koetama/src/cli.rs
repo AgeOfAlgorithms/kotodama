@@ -1,7 +1,7 @@
 //! Koetama on the command line, for Teardown or any profile (--game; engine/teardown_helper.py: the same flags): the same runtime, a status
 //! line, and the test modes that need no microphone.
 //!
-//!     koetama --cli               start it, then play (a level with Proximity Babble Chat)
+//!     koetama --cli               start it, then play (a level with Proximity Comms)
 //!     koetama --cli --demo        no game needed: one voice walks a circle around you
 //!     koetama --cli --list        sound devices;  --device NAME / --mic-device NAME pick one
 //!     koetama --cli --transcribe some.wav --lang ru   a recording through the pipeline

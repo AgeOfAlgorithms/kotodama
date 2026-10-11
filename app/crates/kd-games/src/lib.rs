@@ -30,7 +30,7 @@ pub trait Game: Send + Sync {
     fn id(&self) -> &'static str;
     /// shown in the game picker: "Teardown"
     fn name(&self) -> &'static str;
-    /// what the player needs in the game, shown while waiting: "the Proximity Babble Chat mod"
+    /// what the player needs in the game, shown while waiting: "the Proximity Comms mod"
     fn needs(&self) -> &'static str;
 
     // ---- the program calls these
@@ -145,12 +145,12 @@ pub struct GameKind {
     pub id: String,
     /// the game: "Teardown"
     pub name: String,
-    /// the mod: "Proximity Babble Chat"
+    /// the mod: "Proximity Comms"
     pub mod_name: String,
     /// the mod's page (where players get it; http/https only)
     pub mod_url: String,
     pub author: String,
-    /// "the Proximity Babble Chat mod" (the waiting line)
+    /// "the Proximity Comms mod" (the waiting line)
     pub needs: String,
     /// compiled in (else a profile file)
     pub builtin: bool,

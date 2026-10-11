@@ -25,7 +25,7 @@ fn a_prefix_in_use_is_refused_and_old_ids_are_the_builtins() {
     let clash = src.join("clash.json");
     std::fs::write(&clash, files_profile("teardown-another-chat", "pcvx_")).unwrap();
     let e = install_profile(&clash).unwrap_err();
-    assert!(e.contains("prefix is already used by Teardown (Proximity Babble Chat mod)"), "{e}");
+    assert!(e.contains("prefix is already used by Teardown (Proximity Comms mod)"), "{e}");
     assert_eq!(games().len(), 1);
 
     // its own prefix: fine, next to the built-in

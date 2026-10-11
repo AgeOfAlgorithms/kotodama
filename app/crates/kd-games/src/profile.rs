@@ -294,7 +294,7 @@ pub struct Profile {
     pub id: String,
     /// the game: "Teardown"
     pub game: String,
-    /// the mod: "Proximity Babble Chat"
+    /// the mod: "Proximity Comms"
     pub mod_name: String,
     /// the mod's page (http/https)
     pub url: String,

@@ -13,7 +13,7 @@ which:
 - **files**: for a mod that can only write files (or data its game saves) and read files next to itself (Teardown,
   Lua sandboxes): its feed in a file, Koetama's objects in small numbered files.
 
-The objects are the same either way. Proximity Babble Chat (a Teardown mod, `voice.lua`) is the reference game side.
+The objects are the same either way. Proximity Comms (a Teardown mod, `voice.lua`) is the reference game side.
 
 ## The objects
 
@@ -357,7 +357,7 @@ simply not JSON yet, and skipped). Four fields carry the link itself, only here:
 | `ping` | counts up every ~2 s; Koetama answers it |
 
 **Koetama -> game: files in the profile's folders**, each name starting with the profile's prefix (`pcvx_` for
-Proximity Babble Chat; Teardown: `Documents/Teardown/mods/` and the Workshop folder, read by the mod as
+Proximity Comms; Teardown: `Documents/Teardown/mods/` and the Workshop folder, read by the mod as
 `MOD/../pcvx_...`):
 
 | file | meaning |
@@ -373,7 +373,7 @@ outdated. Please update it from the app."). Koetama 0.4.0 removes those old file
 Measured in Teardown (`probes/`, PROJECT.md): a registry write reaches `savegame.xml` in about one frame (~17 ms), a
 file Koetama writes is seen by `HasFile` within ~17 ms, and spawning a prefab and reading its tags takes ~28 ms.
 
-**Teardown (Proximity Babble Chat).** The feed is `savegame.mod.pcvx.f` (hex), written 20 times a second while there
+**Teardown (Proximity Comms).** The feed is `savegame.mod.pcvx.f` (hex), written 20 times a second while there
 are voices or a voice room, 5 times otherwise, at once when a line is queued for translation or the talk key changes,
 and once more (`listen` off, no speakers) when nothing is left. It sits in `savegame.xml` under the mod's tag
 (`local-<folder>`, `steam-<id>`).
@@ -484,7 +484,7 @@ Teardown's does.
 | `feed.complete` | default `</registry>` | The file is read only when it ends with this text, ignoring trailing white space, so a half-written file is skipped. `""` reads it every time. |
 | `out.dirs` | required | 1 to 8 folders the mod looks in (each a path or candidates). Folders not on this PC are skipped. |
 | `out.tag_dirs` | optional | `[{"tag_prefix": "steam-", "dir": 1}]`: a mod copy whose tag starts with the prefix gets the folder at that index of `out.dirs`. Any other copy gets folder 0. |
-| `out.prefix` | default `pcvx_` | The start of every file name Koetama writes. Unique among game mods: a profile whose prefix another one uses is refused (the two would remove each other's files), so pick one from your mod's name (`pcvx_` is Proximity Babble Chat's). |
+| `out.prefix` | default `pcvx_` | The start of every file name Koetama writes. Unique among game mods: a profile whose prefix another one uses is refused (the two would remove each other's files), so pick one from your mod's name (`pcvx_` is Proximity Comms's). |
 | `out.message` | default `teardown-prefab` | How an object file is written: `json` (`<prefix>t<n>.json`, the object as one line) or `teardown-prefab` (`<prefix>t<n>.xml`, the object's hex in a prefab's tag): "Transport: files". |
 
 The feed and the files are as in "Transport: files". A feed string that was in the file when Koetama started does not

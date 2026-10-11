@@ -35,7 +35,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshot.png" width="640" alt="Koetama's window: connected to Teardown's Proximity Babble Chat mod, English and Japanese picked">
+  <img src="docs/screenshot.png" width="640" alt="Koetama's window: connected to Teardown's Proximity Comms mod, English and Japanese picked">
 </p>
 
 Koetama (声魂, "voice spirit" in Japanese) runs next to your game. It plays the other players' voices placed where they
@@ -124,7 +124,7 @@ with their size). The answer is Yes unless you choose No to keep them for a late
 
 | Game | Mod | Uses |
 |---|---|---|
-| Teardown | [Proximity Babble Chat](https://steamcommunity.com/sharedfiles/filedetails/?id=3812301496) | voices and speech to text |
+| Teardown | [Proximity Comms](https://steamcommunity.com/sharedfiles/filedetails/?id=3812301496) | voices and speech to text |
 
 **Adding a game:** a mod made for Koetama comes with a small profile file (`.json`). In the window, open the game
 mod list and choose **Add game mod...**. Koetama shows what the profile reads, writes and listens on before adding
@@ -205,6 +205,13 @@ MIT, see [LICENSE](LICENSE). The models and libraries Koetama uses are listed wi
 [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
 
 ## What's new
+
+### 0.5.4: Proximity Comms
+
+- Teardown's **Proximity Babble Chat** mod is now **Proximity Comms (Text and Voice Chat)**: the game list shows the
+  new name (your choice of game is kept).
+- The game list: a game mod's page is a link symbol right of its row.
+- The update button no longer turns a see-through colour while the update downloads.
 
 ### 0.5.3: test your microphone
 

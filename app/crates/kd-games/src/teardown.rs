@@ -1,4 +1,4 @@
-//! Teardown, through the mod Proximity Babble Chat (its voice.lua) - engine/games/teardown.py. A BUILT-IN profile
+//! Teardown, through the mod Proximity Comms (its voice.lua) - engine/games/teardown.py. A BUILT-IN profile
 //! (profiles/teardown-proximity-babble-chat.json) on the files connector (files.rs; PROTOCOL.md has the formats):
 //!   game -> Koetama   savegame.xml: savegame.mod.pcvx.f (the feed object's hex), ~20 times a second
 //!   Koetama -> game   small files next to the mod's folder: pcvx_on (running), pcvx_p<n> (the answer to ping n),
@@ -24,8 +24,8 @@ pub const MODTAG: &str = r#"(?-u)<((?:local|steam)-[^\s/>]+)>"#;
 /// the game AND the mod: another Teardown mod made for Koetama has its own id
 pub const ID: &str = "teardown-proximity-babble-chat";
 pub const NAME: &str = "Teardown";
-pub const NEEDS: &str = "the Proximity Babble Chat mod";
-pub const MOD_NAME: &str = "Proximity Babble Chat";
+pub const NEEDS: &str = "the Proximity Comms mod";
+pub const MOD_NAME: &str = "Proximity Comms";
 /// the mod on the Steam Workshop (its id.txt)
 pub const MOD_URL: &str = "https://steamcommunity.com/sharedfiles/filedetails/?id=3812301496";
 
