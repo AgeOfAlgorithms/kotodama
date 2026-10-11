@@ -233,6 +233,10 @@ pub fn meter(ui: &mut egui::Ui, frac: f32, size: Vec2, bright: bool) {
 /// A left-to-right gradient in a rectangle with rounded ends: the ends' caps in the end colours, the strip between
 /// them drawn over (a mesh, one colour per vertex column).
 fn gradient(p: &egui::Painter, rect: Rect, a: Color32, b: Color32, radius: f32) {
+    // (opaque: the rounded ends overlap the strip a little - see-through colours (a dimmed, disabled button) showed
+    //  the overlap as a brighter red and amber end, 2026-10-10. A dimmed colour is a darker one)
+    let opaque = |c: Color32| Color32::from_rgb(c.r(), c.g(), c.b());
+    let (a, b) = (opaque(a), opaque(b));
     let r = radius.min(rect.height() / 2.0).min(rect.width() / 2.0);
     if r > 0.0 {
         let cr = CornerRadius::same(r as u8);
