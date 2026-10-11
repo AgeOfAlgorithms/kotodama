@@ -337,3 +337,22 @@ pub fn game_row(ui: &mut egui::Ui, game: &str, mod_name: &str, selected: bool, c
     }
     resp
 }
+
+/// A link symbol (a box, an arrow out of its corner) as a button `height` tall, next to a game row: its mod's page.
+pub fn link_button(ui: &mut egui::Ui, height: f32) -> egui::Response {
+    let (rect, resp) = ui.allocate_exact_size(Vec2::new(26.0, height), Sense::click());
+    let colour = if resp.hovered() { ACCENT_TEXT } else { MUTED };
+    let stroke = Stroke::new(1.6, colour);
+    let c = rect.center();
+    let p = ui.painter();
+    // (the box, open at its top right corner where the arrow leaves)
+    let (l, t, r, b) = (c.x - 6.0, c.y - 6.0, c.x + 6.0, c.y + 6.0);
+    p.line(vec![Pos2::new(c.x - 1.0, t), Pos2::new(l, t), Pos2::new(l, b), Pos2::new(r, b), Pos2::new(r, c.y + 1.0)], stroke);
+    let tip = Pos2::new(r + 1.5, t - 1.5);
+    p.line_segment([Pos2::new(c.x - 0.5, c.y + 0.5), tip], stroke);
+    p.line(vec![tip + Vec2::new(-5.5, 0.0), tip, tip + Vec2::new(0.0, 5.5)], stroke);
+    if resp.hovered() {
+        ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+    }
+    resp
+}

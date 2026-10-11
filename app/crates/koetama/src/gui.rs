@@ -628,17 +628,19 @@ impl App {
             egui::Popup::from_toggle_button_response(&resp).width(360.0).show(|ui| {
                 ui.label(RichText::new("GAME MODS").size(11.5).family(theme::semibold()).color(theme::MUTED));
                 for g in &self.kinds {
-                    if theme::game_row(ui, &g.name, &g.mod_name, g.id == self.game_id, !g.builtin, 346.0).clicked() && g.id != self.game_id {
-                        switch = Some(g.id.clone());
-                    }
+                    // (the mod's page: a link symbol right of its row, where it has one)
                     ui.horizontal(|ui| {
-                        if !g.mod_url.is_empty() && ui.link(RichText::new("Mod page ↗").size(12.5).color(theme::ACCENT_TEXT)).clicked() {
+                        ui.spacing_mut().item_spacing.x = 4.0;
+                        if theme::game_row(ui, &g.name, &g.mod_name, g.id == self.game_id, !g.builtin, 316.0).clicked() && g.id != self.game_id {
+                            switch = Some(g.id.clone());
+                        }
+                        if !g.mod_url.is_empty() && theme::link_button(ui, 46.0).on_hover_text("Mod page").clicked() {
                             open_url(&g.mod_url);
                         }
-                        if !g.builtin && ui.link(RichText::new("Remove").size(12.5).color(theme::MUTED)).clicked() {
-                            remove = Some(g.clone());
-                        }
                     });
+                    if !g.builtin && ui.link(RichText::new("Remove").size(12.5).color(theme::MUTED)).clicked() {
+                        remove = Some(g.clone());
+                    }
                     ui.add_space(2.0);
                 }
                 for (path, why) in kd_games::bad_profiles() {
